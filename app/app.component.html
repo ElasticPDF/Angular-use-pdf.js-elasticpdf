@@ -1,0 +1,31 @@
+<main class="main">
+    <div *ngIf='language==="en"' class='project-title'>
+		<img src="assets/angular-logo.png" alt="" />
+		<h2>+</h2>
+    	<img src="assets/elasticpdf-logo.png" alt="" />
+    	<h2>Angular+pdf.js example</h2>
+    	<button class='theme-btn btn-outline-info' (click)="getPDFData()">Get PDF Data</button>
+    	<button class='theme-btn btn-outline-help' (click)="outputAnnotations()">Export Annotations</button>
+    	<button class='theme-btn btn-outline-success' (click)="changeFile()">Change Files</button>
+    	<button class='theme-btn btn-outline-warning' (click)="setUser('张三')">Change User</button>
+    	<button class='theme-btn btn-outline-info' (click)="openOrCloseAnnotatioList()">Open/Close Anno</button>
+    </div>
+	<div *ngIf='language==="zh-cn"' class='project-title'>
+		<img src="assets/angular-logo.png" alt="" />
+		<h2>+</h2>
+		<img src="assets/elasticpdf-logo.png" alt="" />
+		<h2>Angular+pdf.js 及 Elasticpdf 部署案例</h2>
+		<button class='theme-btn btn-outline-info' (click)="getPDFData()">获取PDF数据</button>
+		<button class='theme-btn btn-outline-help' (click)="outputAnnotations()">导出批注</button>
+		<button class='theme-btn btn-outline-success' (click)="changeFile()">切换文档</button>
+		<button class='theme-btn btn-outline-warning' (click)="setUser('张三')">切换用户</button>
+		<button class='theme-btn btn-outline-info' (click)="openOrCloseAnnotatioList()">打开/关闭列表</button>
+	</div>
+	<div style="width: 100%;height: auto;">
+		<iframe *ngIf='is_elasticpdf===true' src="assets/elasticpdf/web/viewer.html" id='elasticpdf-iframe' 
+		(load)='initialPDFEditor()' width="100%" height="700px" frameborder="0"></iframe>
+		<iframe *ngIf='is_elasticpdf===false' src="assets/pdfjs-3.2/web/viewer.html" id='elasticpdf-iframe'
+		(load)='initialPDFEditor()' width="100%" height="700px" frameborder="0"></iframe>
+	</div>
+</main>
+<router-outlet></router-outlet>
